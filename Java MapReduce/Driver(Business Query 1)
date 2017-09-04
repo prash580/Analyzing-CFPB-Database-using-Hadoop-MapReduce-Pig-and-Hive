@@ -1,0 +1,41 @@
+package ProductCounter;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+
+public class ProductCountDriver {
+	public static void main(String[] args) {
+		JobClient my_client = new JobClient();
+		// Initializing Job Configuration
+		JobConf job_conf = new JobConf(ProductCountDriver.class);
+
+		// Initializing Job 
+		job_conf.setJobName("ProductCount");
+
+		// Specify data type of output key and value
+		job_conf.setOutputKeyClass(Text.class);
+		job_conf.setOutputValueClass(IntWritable.class);
+
+		// Set Mapper and Reducer Classes
+		job_conf.setMapperClass(ProductMapper.class);
+		job_conf.setReducerClass(ProductReducer.class);
+
+		// Setting the format for input and output as Text
+		job_conf.setInputFormat(TextInputFormat.class);
+		job_conf.setOutputFormat(TextOutputFormat.class);
+
+		
+		//custinfo being the SQL table which is imported to hdfs via sqoop
+		
+		FileInputFormat.addInputPath(job_conf, new Path("hdfs://localhost:54310/user/hduser/custinfo"));
+		FileOutputFormat.setOutputPath(job_conf, new Path("hdfs://localhost:54310/user/hduser/projectoutput"));
+		my_client.setConf(job_conf);
+		try {
+			
+			JobClient.runJob(job_conf);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+

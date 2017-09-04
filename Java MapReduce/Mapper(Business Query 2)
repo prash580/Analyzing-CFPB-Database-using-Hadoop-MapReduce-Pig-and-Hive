@@ -1,0 +1,49 @@
+package filterpattern;
+
+import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Mapper.Context;
+
+
+
+	public class FilterMapper extends
+			Mapper<Object, Text, Text, NullWritable>
+	{
+
+		
+		private Text outstring = new Text();
+
+		
+		public void map(Object key, Text value, Context context)
+				throws IOException, InterruptedException
+		{
+				
+			    Text outputKey = new Text();
+			    
+				String[] Customers = value.toString().split(",");
+				
+				String Issue;
+				String Company;
+				String Response;
+				String Product;
+				
+				String Output;
+				Product = Customers[2];
+				Issue = Customers[4];
+				Company = Customers[7];
+				Response = Customers[13];
+				if(Response.equals("Untimely response") & Product.equals("Debt collection"))
+				{
+				Output = (Company+","+Issue);
+				
+				outputKey.set(Output);
+				
+			    context.write(outputKey,NullWritable.get());
+				}
+		}
+	}
+
