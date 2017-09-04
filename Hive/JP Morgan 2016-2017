@@ -1,0 +1,16 @@
+Script :select Product, count(Issue) from Customer where reqdate BETWEEN "2016-01-01" AND "2017-01-01" AND Company LIKE "JPMORGAN%" group by Product;
+
+Output:
+
+Bank account or service	1127
+Consumer Loan	121
+Credit card	1090
+Credit reporting	10
+Debt collection	218
+Money transfers	20
+Mortgage	1182
+Other financial service	11
+Payday loan	1
+Prepaid card	3
+Student loan	51
+

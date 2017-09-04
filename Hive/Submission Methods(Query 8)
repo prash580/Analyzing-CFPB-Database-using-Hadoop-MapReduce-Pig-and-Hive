@@ -1,0 +1,115 @@
+hive> select product,SubmittedVia,count(issue) from Customer group by SubmittedVia,product;
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Query ID = hduser_20170802090409_ae40f303-b653-4ba3-9e51-a7d1e24eb0ac
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Job running in-process (local Hadoop)
+2017-08-02 09:04:10,606 Stage-1 map = 0%,  reduce = 0%
+2017-08-02 09:04:11,608 Stage-1 map = 100%,  reduce = 100%
+Ended Job = job_local1696650591_0015
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 2963750250 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+Bank account or service	Email	34
+Bank account or service	Fax	643
+Bank account or service	Phone	6753
+Bank account or service	Postal mail	2073
+Bank account or service	Referral	15538
+Bank account or service	Web	22300
+Checking or savings account	Fax	46
+Checking or savings account	Phone	366
+Checking or savings account	Postal mail	217
+Checking or savings account	Referral	1079
+Checking or savings account	Web	2421
+Consumer Loan	Email	9
+Consumer Loan	Fax	184
+Consumer Loan	Phone	1470
+Consumer Loan	Postal mail	700
+Consumer Loan	Referral	1848
+Consumer Loan	Web	12249
+Credit card	Email	25
+Credit card	Fax	542
+Credit card	Phone	3824
+Credit card	Postal mail	3044
+Credit card	Referral	8108
+Credit card	Web	35087
+Credit card or prepaid card	Fax	45
+Credit card or prepaid card	Phone	266
+Credit card or prepaid card	Postal mail	331
+Credit card or prepaid card	Referral	473
+Credit card or prepaid card	Web	3872
+Credit reporting	Email	14
+Credit reporting	Fax	1297
+Credit reporting	Phone	1885
+Credit reporting	Postal mail	11533
+Credit reporting	Referral	5994
+Credit reporting	Web	67840
+Credit reporting credit repair services or other personal consumer reports	Fax	99
+Credit reporting credit repair services or other personal consumer reports	Phone	777
+Credit reporting credit repair services or other personal consumer reports	Postal mail	1477
+Credit reporting credit repair services or other personal consumer reports	Referral	290
+Credit reporting credit repair services or other personal consumer reports	Web	16812
+Debt collection	Email	4
+Debt collection	Fax	666
+Debt collection	Phone	5146
+Debt collection	Postal mail	3488
+Debt collection	Referral	4739
+Debt collection	Web	65343
+Money transfer virtual currency or money service	Fax	9
+Money transfer virtual currency or money service	Phone	84
+Money transfer virtual currency or money service	Postal mail	16
+Money transfer virtual currency or money service	Referral	62
+Money transfer virtual currency or money service	Web	718
+Money transfers	Fax	26
+Money transfers	Phone	579
+Money transfers	Postal mail	59
+Money transfers	Referral	102
+Money transfers	Web	1777
+Mortgage	Email	90
+Mortgage	Fax	2572
+Mortgage	Phone	7543
+Mortgage	Postal mail	7344
+Mortgage	Referral	35442
+Mortgage	Web	73200
+Other financial service	Fax	13
+Other financial service	Phone	76
+Other financial service	Postal mail	53
+Other financial service	Referral	89
+Other financial service	Web	319
+Payday loan	Fax	17
+Payday loan	Phone	141
+Payday loan	Postal mail	42
+Payday loan	Referral	68
+Payday loan	Web	2447
+Payday loan title loan or personal loan	Fax	9
+Payday loan title loan or personal loan	Phone	48
+Payday loan title loan or personal loan	Postal mail	38
+Payday loan title loan or personal loan	Referral	45
+Payday loan title loan or personal loan	Web	698
+Prepaid card	Fax	7
+Prepaid card	Phone	272
+Prepaid card	Postal mail	56
+Prepaid card	Referral	271
+Prepaid card	Web	1530
+Student loan	Email	5
+Student loan	Fax	99
+Student loan	Phone	555
+Student loan	Postal mail	369
+Student loan	Referral	996
+Student loan	Web	16770
+Vehicle loan or lease	Fax	11
+Vehicle loan or lease	Phone	85
+Vehicle loan or lease	Postal mail	71
+Vehicle loan or lease	Referral	90
+Vehicle loan or lease	Web	891
+Virtual currency	Web	10
+Time taken: 2.436 seconds, Fetched: 93 row(s)
+

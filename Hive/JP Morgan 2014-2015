@@ -1,0 +1,16 @@
+Query: select Product, count(Issue) from Customer where reqdate BETWEEN "2014-01-01" AND "2015-01-01" AND Company LIKE "JPMORGAN%" group by Product;
+
+
+Output:
+
+Bank account or service	730
+Consumer Loan	70
+Credit card	678
+Credit reporting	11
+Debt collection	234
+Money transfers	26
+Mortgage	1522
+Other financial service	7
+Prepaid card	4
+Student loan	105
+

@@ -1,0 +1,72 @@
+hive> select State,count(issue) from Customer where Issue LIKE "Incorrect information%"  AND ConsumerDisputed="No" group by State;
+
+
+Output:
+
+
+Total MapReduce CPU Time Spent: 0 msec
+OK
+AE	31
+AK	55
+AL	698
+AP	17
+AR	267
+AZ	1099
+CA	7376
+CO	860
+CT	549
+DC	263
+DE	272
+FL	5792
+FM	3
+GA	3172
+GU	6
+HI	129
+IA	304
+ID	183
+IL	2288
+IN	603
+KS	216
+KY	469
+LA	717
+MA	765
+MD	1448
+ME	102
+MH	1
+MI	1156
+MN	537
+MO	711
+MP	5
+MS	310
+MT	71
+NA	177
+NC	1548
+ND	83
+NE	126
+NH	173
+NJ	1723
+NM	417
+NV	678
+NY	3617
+OH	1388
+OK	374
+OR	506
+PA	1750
+PR	258
+PW	1
+RI	134
+SC	848
+SD	64
+TN	841
+TX	7108
+UT	253
+VA	1835
+VI	25
+VT	58
+WA	864
+WI	402
+WV	140
+WY	73
+Time taken: 2.382 seconds, Fetched: 61 row(s)
+
+

@@ -1,0 +1,22 @@
+ hive> select count(issue) from Customer where companyresolution = "Closed with non-monetary relief" AND reqdate BETWEEN "2014-01-01" AND     "2015-01-01";
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Query ID = hduser_20170802084555_70e10b99-d406-45b1-9ac3-4bffe1a36c87
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Job running in-process (local Hadoop)
+2017-08-02 08:45:57,262 Stage-1 map = 0%,  reduce = 0%
+2017-08-02 08:45:58,277 Stage-1 map = 100%,  reduce = 100%
+Ended Job = job_local1731387147_0004
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 790333400 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+12686
+Time taken: 2.582 seconds, Fetched: 1 row(s)
