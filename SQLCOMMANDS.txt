@@ -1,0 +1,35 @@
+SQL TABLE CREATION
+-----------------------------------
+create database consumer_complaints;
+
+use consumer_complaints;
+
+create table custinfo
+(rowid bigint primary key NOT NULL,
+date DATE,
+Product varchar(255),
+Subproduct varchar(255),
+Issue varchar(255),
+Subissue varchar(255),
+CompanyResponse varchar(255),
+company varchar(255),
+State varchar(2),
+Zip varchar(10),
+ConsumerConsent varchar(255),
+SubmittedVia varchar(20),
+SentDate DATE,
+CompanyResolution varchar(255),
+TimelyResponse varchar(255),
+ConsumerDisputed varchar(255),
+Complaint_ID bigint);
+
+LOADING DATA INTO TABLE
+--------------------------------------------------
+
+LOAD DATA LOCAL INFILE '/home/hduser/Downloads/complaints.csv' INTO TABLE custinfo FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+
+
+================================================================
+
+Load Table custinfo into HDFS --> bin/sqoop-import --connect jdbc:mysql://localhost/consumer_complaints --username root --password mysql --table custinfo;
+

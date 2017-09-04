@@ -1,0 +1,40 @@
+normalize <- function(x) {
+return (( x-min(x)/max(x) - min(x) )) }
+
+new_df <- as.data.frame(lapply(rooms[,c(3,4,5,6)], normalize))
+
+
+ rooms_train <- new_df[1:999, ]
+> rooms_test<-new_df[1000:1178, ]
+> rooms_train_target<-rooms[1:999, 1]
+> rooms_test_target<- rooms[1000:1178,5]
+
+require(dplyr)
+
+ dataf <- bind_rows(mutate(test,
+                           prob=prob,
+                           cls="EntireHome",
+                           prob_cls=ifelse(model==cls,
+                                           1, 0)),
+                    mutate(test,
+                           prob=prob,
+                           cls="Private",
+                           prob_cls=ifelse(model==cls,
+                                           1, 0)),
+                    mutate(test,
+                           prob=prob,
+                           cls="Shared",
+                           prob_cls=ifelse(model==cls,
+                                           1, 0)))
+
+ require(ggplot2)
+ ggplot(dataf) +
+    geom_point(aes(x=x, y=y, col=cls),
+               data = mutate(test, cls=classif),
+               size=1.2) + 
+    geom_contour(aes(x=x, y=y, z=prob_cls, group=cls, color=cls),
+                 bins=2,
+                 data=dataf) +
+    geom_point(aes(x=x, y=y, col=cls),
+               size=3,
+               data=data.frame(x=rooms_train[,1], y=rooms_train[,2], cls=cl))

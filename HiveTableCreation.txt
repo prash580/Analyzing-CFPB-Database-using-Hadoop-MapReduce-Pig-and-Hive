@@ -1,0 +1,24 @@
+CREATING TABLE IN HIVE
+---------------------------------
+
+hive> CREATE TABLE IF NOT EXISTS Customer 
+(rowid bigint,
+reqdate date,
+roduct varchar(255),
+subproduct varchar(255),
+issue varchar(255),
+subissue varchar(255),
+companyResponse varchar(255),
+company varchar(255),
+state varchar(2),
+zip varchar(10),
+consumerconsent varchar(255),
+submittedvia varchar(20),
+sentdate date,
+companyresolution varchar(255),
+timelyresponse varchar(255),
+consumerdisputed varchar(255),
+complaint_id bigint); ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054';
+
+
+LOAD DATA LOCAL INPATH '/usr/local/Complaints.csv' into Customer
