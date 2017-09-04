@@ -1,0 +1,9 @@
+cust_record = LOAD 'fincust.csv' USING
+PigStorage(',')
+AS(rowid:INT,SubmitTime:datetime,Product:chararray,Subproduct:chararray,Issue:chararray,Subissue:chararray,CompanyResponse:chararray,Company:chararray,State:chararray,Zip:chararray,ConsumerConsent:chararray,SubmittedVia:chararray,Sentdate:datetime,CompanyResolution:chararray,TimelyResponse:chararray,ConsumerDisputed:chararray,ComplaintID:INT);
+Consent = FILTER cust_record BY (ConsumerConsent=='Consent not provided');
+Company = GROUP Consent BY (Company);
+Issue_count = FOREACH Company GENERATE group,
+COUNT(Consent.Product);
+Store Issue_count into 'PigOut.txt';
+
